@@ -1,0 +1,6 @@
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.feedback { min-height: 1.5rem; }
+.feedback.bg-success { color: #fff; padding: .3rem; border-radius: .25rem; }
+.feedback.bg-danger { color: #fff; padding: .3rem; border-radius: .25rem; }
+.card h5 { margin-bottom: .5rem; }
+#congrats { font-size: 1.05rem; font-weight: 600; }

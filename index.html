@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>General Knowledge — JS Quiz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-light text-center">
+  <main class="container py-5">
+    <h1 class="display-6 mb-3 p-3 bg-info rounded">Ten Question Quiz</h1>
+    <p class="lead mb-4">10 questions — 100 points total.</p>
+    <form id="quizForm" class="text-start mx-auto" style="max-width:900px;">
+      <div class="card mb-3 p-3" id="q1Card">
+        <h5>1) What is the capital of California? <span id="markImg1" class="ms-2"></span></h5>
+        <input id="q1" class="form-control mt-2" type="text" aria-label="Capital of California">
+        <div id="q1Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q2Card">
+        <h5>2) Which US state has the largest area?</h5>
+        <select id="q2" class="form-select mt-2" aria-label="Largest US state">
+          <option value="">-- choose --</option>
+          <option value="Alaska">Alaska</option>
+          <option value="Texas">Texas</option>
+          <option value="California">California</option>
+          <option value="Montana">Montana</option>
+        </select>
+        <div id="q2Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q3Card">
+        <h5>3) Which presidents are carved into Mount Rushmore? <span id="markImg3" class="ms-2"></span></h5>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="q3Washington">
+          <label class="form-check-label" for="q3Washington">George Washington</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="q3Jefferson">
+          <label class="form-check-label" for="q3Jefferson">Thomas Jefferson</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="q3Lincoln">
+          <label class="form-check-label" for="q3Lincoln">Abraham Lincoln</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="q3Roosevelt">
+          <label class="form-check-label" for="q3Roosevelt">Theodore Roosevelt</label>
+        </div>
+        <div id="q3Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q4Card">
+        <h5>4) What is the smallest US state by area? <span id="markImg4" class="ms-2"></span></h5>
+        <div id="q4Choices" class="mt-2"></div>
+        <div id="q4Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q5Card">
+        <h5>5) How many continents are there in the world?</h5>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5A" value="5">
+          <label class="form-check-label" for="q5A">5</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5B" value="6">
+          <label class="form-check-label" for="q5B">6</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="q5" id="q5C" value="7">
+          <label class="form-check-label" for="q5C">7</label>
+        </div>
+        <div id="q5Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q6Card">
+        <h5>6) How many degrees are in a right angle?</h5>
+        <input id="q6" class="form-control mt-2" type="number" aria-label="Degrees in right angle">
+        <div id="q6Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q7Card">
+        <h5>7) Approx what percent of Earth's surface is covered by water?</h5>
+        <div class="d-flex align-items-center gap-3">
+          <input id="q7" type="range" min="50" max="100" value="71" step="1" class="form-range" aria-label="Percent water">
+          <span id="q7Val" class="badge bg-secondary">71%</span>
+        </div>
+        <div id="q7Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q8Card">
+        <h5>8) In what year did the United States declare independence? (pick any date in that year)</h5>
+        <input id="q8" type="date" class="form-control mt-2" aria-label="Date of independence">
+        <div id="q8Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q9Card">
+        <h5>9) Which of the following are prime numbers? (choose all that apply)</h5>
+        <select id="q9" class="form-select mt-2" multiple size="4" aria-label="Prime numbers">
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <div id="q9Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="card mb-3 p-3" id="q10Card">
+        <h5>10) Name the largest ocean on Earth (one word).</h5>
+        <textarea id="q10" class="form-control mt-2" rows="2" aria-label="Largest ocean"></textarea>
+        <div id="q10Feedback" class="mt-2 feedback"></div>
+      </div>
+      <div class="text-center mt-4">
+        <button id="submitBtn" type="button" class="btn btn-primary btn-lg">Submit Quiz</button>
+      </div>
+      <div class="mt-4">
+        <h4 id="totalScore" class="fw-bold"></h4>
+        <div id="congrats" class="mt-2"></div>
+        <p class="small text-muted">Total times quiz submitted: <span id="totalAttempts">0</span></p>
+      </div>
+    </form>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>
